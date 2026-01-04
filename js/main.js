@@ -29,23 +29,26 @@ $(document).ready(function(){
 	// Mobile navbar toggle fix
 	$('.navbar-toggle').on('click', function(e) {
 		e.preventDefault();
+		e.stopPropagation();
 		var $target = $($(this).data('target'));
-		var isCollapsed = $target.hasClass('in');
+		var isOpen = $target.hasClass('in');
 		
-		if (isCollapsed) {
-			$target.removeClass('in');
+		if (isOpen) {
+			$target.removeClass('in').addClass('collapse');
 			$(this).addClass('collapsed').attr('aria-expanded', 'false');
 		} else {
-			$target.addClass('in');
+			$target.removeClass('collapse').addClass('in');
 			$(this).removeClass('collapsed').attr('aria-expanded', 'true');
 		}
 	});
 	
-	// Mobile dropdown menu handling - prevent default Bootstrap behavior on mobile
+	// Handle Services dropdown differently on mobile vs desktop
 	$('.navbar-nav .dropdown > a.dropdown-toggle').on('click', function(e) {
 		if (isMobileView()) {
+			// On mobile, prevent navigation and toggle dropdown
 			e.preventDefault();
 			e.stopPropagation();
+			e.stopImmediatePropagation();
 			var $dropdown = $(this).next('.dropdown-menu');
 			var $parent = $(this).parent('.dropdown');
 			var isOpen = $parent.hasClass('open');
@@ -62,6 +65,17 @@ $(document).ready(function(){
 				$parent.addClass('open');
 				$dropdown.slideDown(200);
 				$(this).attr('aria-expanded', 'true');
+			}
+			return false;
+		} else {
+			// On desktop, if the link has a valid href, allow navigation
+			var href = $(this).attr('href');
+			if (href && href !== '#' && href !== 'javascript:void(0)') {
+				// Stop Bootstrap's dropdown handler from preventing navigation
+				e.stopImmediatePropagation();
+				// Navigate to the link
+				window.location.href = href;
+				return false;
 			}
 		}
 	});

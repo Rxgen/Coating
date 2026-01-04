@@ -386,6 +386,16 @@ p {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
     }
+    
+    /* Allow Services link to be clickable on desktop */
+    .navbar-nav .dropdown > a.dropdown-toggle {
+        pointer-events: auto;
+    }
+    
+    /* Show dropdown on hover but also allow click to navigate */
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
 }
 
 /* ============================================
@@ -1075,42 +1085,60 @@ footer a.footer-link:focus {
     .navbar-header {
         float: none;
         width: 100%;
+        clear: both;
     }
     
     .navbar-toggle {
-        display: block;
+        display: block !important;
         float: right;
+        margin-right: 15px;
+    }
+    
+    .navbar .container {
+        width: 100%;
+        padding: 0;
     }
     
     .navbar-collapse {
-        border-top: 1px solid transparent;
+        border-top: 1px solid rgba(255,255,255,0.1);
         box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
         max-height: none;
         padding-left: 15px;
         padding-right: 15px;
+        clear: both;
+        width: 100%;
     }
     
     .navbar-collapse.collapse {
         display: none !important;
+        height: 0;
+        overflow: hidden;
     }
     
-    .navbar-collapse.in {
+    .navbar-collapse.in,
+    .navbar-collapse.collapse.in {
         display: block !important;
-        overflow-y: auto !important;
+        overflow-y: visible !important;
+        height: auto !important;
+        visibility: visible !important;
+        max-height: none !important;
     }
     
     .navbar-nav {
         float: none !important;
         margin: 7.5px -15px;
+        display: block !important;
     }
     
     .navbar-nav > li {
         float: none;
+        display: block !important;
     }
     
     .navbar-nav > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
+        display: block !important;
     }
     
     .navbar-inverse .navbar-nav > li > a {
@@ -1138,8 +1166,10 @@ footer a.footer-link:focus {
         display: none;
     }
     
-    .dropdown.open > .dropdown-menu {
-        display: block;
+    .dropdown.open > .dropdown-menu,
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+        visibility: visible !important;
     }
     
     .dropdown-menu > li > a {
