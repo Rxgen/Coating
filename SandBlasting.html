@@ -26,9 +26,9 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
     <link href="http://db.onlinewebfonts.com/c/d58f65c7b063b8d1f4ed247e47e37e5b?family=Swis721+BT" rel="stylesheet" type="text/css" />
     <link media="screen" rel="stylesheet" href="colorbox.html" />
-    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <link href="http://db.onlinewebfonts.com/c/d97281294b63b449a93162fccd6121ec?family=Swis721+BT+Bold" rel="stylesheet" type="text/css" />
-    <script src="js/jquery.colorbox.html"></script>
+    <script src="js/jquery.colorbox-min.js"></script>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <script>
         $(document).ready(function () {
@@ -79,19 +79,20 @@
                     <div class="navbar  navbar-inverse">
                         <div class="container" style="padding-left:0; padding-right:0; float:right">
                             <div class="navbar-header" style=" margin-right:20px">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="navbar-collapse collapse">
+                            <div id="navbar-collapse-menu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="About-Us.html">About Us</a></li>
 
                                     <li class="dropdown active">
-                                        <a href="SandBlasting.html">Services<b class="caret"></b> </a>
+                                        <a href="SandBlasting.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<b class="caret"></b> </a>
                                         <ul class="dropdown-menu">
                                             <li><a href="SandBlasting.html#s1">Sand Blasting</a></li>
                                             <li><a href="SandBlasting.html#s2">Copper Slag Blasting</a></li>
@@ -640,7 +641,7 @@
                     </div>
                     <div class="footer-bottom">
                         <p>© 2025 | Laxmi Enterprises Services</p>
-                        <a href="http://webxces.com/" target="_blank" class="footer-link"><img src="../www.webxces.com/images/Powered-by-webxces-whfe4d.png?height=25" alt="Designed & Maintained by Webxces"></a>
+                        <a href="http://webxces.com/" target="_blank" class="footer-link"><img src="https://www.webxces.com/images/Powered-by-webxces-whfe4d.png?height=25" alt="Designed & Maintained by Webxces" onerror="this.style.display='none'"></a>
                     </div>
                 </footer>
             </div>
@@ -648,9 +649,8 @@
     </div> <!-- /container -->
 
 
-    <script type="text/javascript" src="../ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.html"><\/script>')</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-1.10.1.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
     <script type="text/javascript" src="js/jquery.simplyscroll-1.0.4.js"></script>
@@ -684,7 +684,7 @@
         });
     </script>
 
-    <script type="text/javascript" src="../arrow.scrolltotop.com/arrow60.js"></script>
+    <!-- Scroll to top script removed - can be added if needed -->
 
 
     <script>

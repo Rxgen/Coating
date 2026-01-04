@@ -46,19 +46,20 @@
                     <div class="navbar  navbar-inverse">
                         <div class="container" style="padding-left:0; padding-right:0; float:right">
                             <div class="navbar-header" style=" margin-right:20px">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-menu" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="navbar-collapse collapse">
+                            <div id="navbar-collapse-menu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="About-Us.html">About Us</a></li>
 
                                     <li class="dropdown">
-                                        <a href="SandBlasting.html">Services<b class="caret"></b> </a>
+                                        <a href="SandBlasting.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<b class="caret"></b> </a>
                                         <ul class="dropdown-menu">
                                             <li><a href="SandBlasting.html#s1">Sand Blasting</a></li>
                                             <li><a href="SandBlasting.html#s2">Copper Slag Blasting</a></li>
@@ -135,7 +136,7 @@
                     </div>
                     <div class="footer-bottom">
                         <p>© 2025 | Laxmi Enterprises Services</p>
-                        <a href="http://webxces.com/" target="_blank" class="footer-link"><img src="../www.webxces.com/images/Powered-by-webxces-whfe4d.png?height=25" alt="Designed & Maintained by Webxces"></a>
+                        <a href="http://webxces.com/" target="_blank" class="footer-link"><img src="https://www.webxces.com/images/Powered-by-webxces-whfe4d.png?height=25" alt="Designed & Maintained by Webxces" onerror="this.style.display='none'"></a>
                     </div>
                 </footer>
             </div>
@@ -143,8 +144,8 @@
     </div> <!-- /container -->
 
 
-    <script src="../ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.html"><\/script>')</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-1.10.1.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
     <script type="text/javascript" src="js/jquery.simplyscroll-1.0.4.js"></script>
@@ -176,7 +177,7 @@
         });
     </script>
 
-    <script type="text/javascript" src="../arrow.scrolltotop.com/arrow60.js"></script>
+    <!-- Scroll to top script removed - can be added if needed -->
 
 
     <script>
