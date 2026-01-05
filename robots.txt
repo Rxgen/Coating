@@ -1,0 +1,32 @@
+# robots.txt for Laxmi Enterprises Services
+# https://laxmi-enterprises12.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the site
+Allow: /index.html
+Allow: /About-Us.html
+Allow: /SandBlasting.html
+Allow: /Enquiry.html
+Allow: /contact_us.html
+
+# Disallow admin and private directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow CSS, JS, and images
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Allow: /newimg/
+Allow: /fonts/
+Allow: /themes/
+
+# Sitemap location
+Sitemap: https://laxmi-enterprises12.vercel.app/sitemap.xml
+
+# Crawl-delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
