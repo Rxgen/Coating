@@ -143,7 +143,7 @@
             </div>
             <div class="col-sm-6">
                 <div>
-                    <iframe allowtransparency="true" frameborder="0" style="background:transparent;" scrolling="no" id="I1" name="I1" width="100%" height="500" src="enquiryForm.html"></iframe>
+                    <iframe allowtransparency="true" frameborder="0" style="background:transparent;" scrolling="yes" id="I1" name="I1" width="100%" height="650" src="enquiryForm.html"></iframe>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -220,6 +220,28 @@
             slideshowEnd: function () { },     // Triggers after all slides have been shown
             lastSlide: function () { },         // Triggers when last slide is shown
             afterLoad: function () { }         // Triggers when slider has loaded
+        });
+        
+        // Auto-resize iframe to fit content
+        $(document).ready(function() {
+            var iframe = document.getElementById('I1');
+            if (iframe) {
+                // Set minimum height
+                iframe.style.minHeight = '650px';
+                
+                // Listen for form content changes
+                iframe.onload = function() {
+                    try {
+                        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        var formHeight = iframeDoc.body.scrollHeight;
+                        if (formHeight > 500) {
+                            iframe.style.height = (formHeight + 50) + 'px';
+                        }
+                    } catch(e) {
+                        // Cross-origin restriction, use default height
+                    }
+                };
+            }
         });
     </script>
 

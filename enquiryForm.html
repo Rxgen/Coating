@@ -1,234 +1,350 @@
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry Form - Laxmi Enterprises</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
-
-    <link rel="stylesheet" href="css/colorbox.css">
-    <link rel="stylesheet" href="css/jquery.simplyscroll-1.0.4.css" media="all" type="text/css" />
-    <link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-    <link href='https://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
-    <script src="js/respond.min.js"></script>
-    <script src="js/modernizr-2.7.2.js"></script>
-
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!--[if IE 7]><link rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="css/normalize.html" />
-    <link rel="stylesheet" type="text/css" href="css/demo.html" />
-    <link rel="stylesheet" type="text/css" href="css/set1.css" />
-
-    <link media="screen" rel="stylesheet" href="colorbox.html" />
-    <link href="css/style.html" rel="stylesheet" type="text/css" media="all" />
-
-    <script src="js/respond.min.js"></script>
-    <script src="js/modernizr-2.7.2.js"></script>
-
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <meta http-equiv="Content-Language" content="English" />
-    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-
-
+    
     <style type="text/css">
-        .txtBox {
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 15px;
+            background: transparent;
+            font-family: Tahoma, Arial, sans-serif;
             width: 100%;
-            color: #000000;
-            margin: 10px;
+            max-width: 100%;
+            overflow-x: hidden;
         }
-
-        td {
-            color: #fff;
-            margin: 10px;
+        #enquiryForm {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding-bottom: 20px;
         }
-
-        tr {
-            margin: 10px;
+        .txtBox, .form-control {
+            width: 100% !important;
+            max-width: 100%;
+            padding: 10px 12px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+            display: block;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+            width: 100% !important;
+        }
+        .error-message {
+            color: #d9534f;
+            font-size: 12px;
+            margin-top: 3px;
+            margin-bottom: 8px;
+            display: none;
+            line-height: 1.4;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .required {
+            color: #d9534f;
+            margin-left: 3px;
+        }
+        .btn-submit {
+            background-color: #337ab7 !important;
+            color: white !important;
+            padding: 12px 25px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            cursor: pointer;
+            font-size: 16px !important;
+            font-weight: bold;
+            margin-top: 15px !important;
+            margin-bottom: 10px !important;
+            width: 100% !important;
+            max-width: 100%;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #286090 !important;
+        }
+        .btn-submit:active {
+            background-color: #1e4d72 !important;
+        }
+        .btn-submit:disabled {
+            background-color: #ccc !important;
+            cursor: not-allowed;
+        }
+        .success-message {
+            color: #5cb85c;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+        .success-message.show {
+            display: block;
+        }
+        label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 6px;
+            display: block;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+            clear: both;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .txtBox, .form-control {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 12px;
+            }
+            .btn-submit {
+                font-size: 16px !important;
+                padding: 14px 25px !important;
+            }
+            label {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+        }
+        
+        /* Ensure form is scrollable if needed */
+        html {
+            overflow-y: auto;
         }
     </style>
 </head>
 
-<body style="margin: 0px; padding: 0px; background: transparent; font-family: Tahoma">
-    <form method="post" action="http://shreyacoating.com/enquiryForm.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" style="background: transparent">
-<div class="aspNetHidden">
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTM2MTYxNDgzMmRkLu4T8QCXitZ6kVo64fxUl4gR/O7JUS/MSXjvUoGJeas=" />
-</div>
+<body>
+    <form id="enquiryForm" novalidate>
+        <div class="form-group">
+            <label>Name <span class="required">*</span></label>
+            <input name="txtName" type="text" id="txtName" class="form-control txtBox" placeholder="Enter your name" required />
+            <span class="error-message" id="nameError">Please enter your name</span>
+        </div>
 
-<script type="text/javascript">
-//<![CDATA[
-var theForm = document.forms['form1'];
-if (!theForm) {
-    theForm = document.form1;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
-}
-//]]>
-</script>
+        <div class="form-group">
+            <label>Contact No. <span class="required">*</span></label>
+            <input name="txtContact" type="tel" id="txtContact" class="form-control txtBox" placeholder="Enter your contact number" required pattern="[0-9]{10}" maxlength="10" />
+            <span class="error-message" id="contactError">Please enter a valid 10-digit contact number</span>
+        </div>
 
+        <div class="form-group">
+            <label>Email ID <span class="required">*</span></label>
+            <input name="txtEmail" type="email" id="txtEmail" class="form-control txtBox" placeholder="Enter your email address" required />
+            <span class="error-message" id="emailError">Please enter a valid email address</span>
+        </div>
 
-<script src="WebResource1e51.js?d=p0aZILTI0AqV5L2i9fo17vflGAvixpXm9Qa9bzD8wLmmnTLAvAy8vTjqAmiSTQ40N0eWNutz_7gZ1CwV7bdlCU8siT7LamiZsZSpvzq7oU81&amp;t=638901289900000000" type="text/javascript"></script>
+        <div class="form-group">
+            <label>Company Name <span class="required">*</span></label>
+            <input name="txtCompany" type="text" id="txtCompany" class="form-control txtBox" placeholder="Enter company name" required />
+            <span class="error-message" id="companyError">Please enter company name</span>
+        </div>
 
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="txtAddress" rows="2" id="txtAddress" class="form-control txtBox" placeholder="Enter your address"></textarea>
+        </div>
 
-<script src="WebResourceabd9.js?d=PeJtrZ9pm5yjjbLEehHov0n1mNkky3BuKvrHukEAb3VaJdxkWu21_Ihtbhu4XxPY9d6-QZeI7w0rsZ2RpVWq4Wc2bSE6p4HzvseVj1GS2_w1&amp;t=638901289900000000" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-function WebForm_OnSubmit() {
-if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
-return true;
-}
-//]]>
-</script>
+        <div class="form-group">
+            <label>Description <span class="required">*</span></label>
+            <textarea name="txtMsg" rows="3" id="txtMsg" class="form-control txtBox" placeholder="Describe your requirement" required></textarea>
+            <span class="error-message" id="msgError">Please enter description of your requirement</span>
+        </div>
 
-<div class="aspNetHidden">
+        <div class="form-group" style="margin-top: 20px; margin-bottom: 20px;">
+            <button type="submit" id="btnSubmit" class="btn-submit">
+                <i class="icon-envelope-alt"></i> Submit Enquiry
+            </button>
+        </div>
 
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="38AC49AC" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAisPxBzip0cc1pkZjopSlgRozoJZpuXxkpOVJKRbHyuHmlE95vBzyuu2HxCSHHWMf1DB2YfWbjwUYntrwPx36ESritheASS1ynwH5030C1I0JqPnR1JXGHWscSP1P0vWV0Dexr0IsCJjQ1GDAX0QlAazfg78Z8BXhXifTCAVkevd+nHn/yDBLxKmcDc+iQbUZIEl5GDEI7p8D+lLchcJHss" />
-</div>
-        <table id="tblForm" style="width: 100%;">
-	<tr>
-		<td style="padding: 3px;">
-                    <input name="txtName" type="text" id="txtName" class="form-control" placeholder="Name" />
-                </td>
-		<td>
-                    <span id="RequiredFieldValidator1" style="color:Red;visibility:hidden;">*</span>
-                </td>
-	</tr>
-	<tr>
-		<td style="padding: 3px;">
-                    <input name="txtContact" type="text" id="txtContact" class="form-control" placeholder="Contact No." />
-                </td>
-		<td>
-                    <span id="RequiredFieldValidator4" style="color:Red;visibility:hidden;">*</span>
-                </td>
-	</tr>
-	<tr>
-		<td style="padding: 3px;">
-                    <input name="txtEmail" type="text" id="txtEmail" class="form-control" placeholder="Email ID" />
-                </td>
-		<td>
-                    <span id="RequiredFieldValidator2" style="color:Red;visibility:hidden;">*</span>
-                    <span id="RegularExpressionValidator1" style="visibility:hidden;">*</span>
-                </td>
-	</tr>
-	<tr>
-		<td style="padding: 3px;">
-                    <input name="txtCompany" type="text" id="txtCompany" class="form-control" placeholder="Company Name" />
-                </td>
-		<td>
-                    <span id="RequiredFieldValidator5" style="color:Red;visibility:hidden;">*</span>
-                </td>
-	</tr>
-	<tr>
-		<td style="padding: 3px;">
-                   <textarea name="txtAddress" rows="2" cols="20" id="txtAddress" class="form-control" placeholder="Address">
-</textarea>
-                </td>
-		<td></td>
-	</tr>
-	<tr>
-		<td style="padding: 3px;">
-                    <textarea name="txtMsg" rows="3" cols="20" id="txtMsg" class="form-control" placeholder="Description">
-</textarea>
-                </td>
-		<td>
-                    <span id="RequiredFieldValidator3" style="color:Red;visibility:hidden;">*</span>
-                </td>
-	</tr>
-	<tr>
-		<td style="padding: 3px; padding-top: 8px;">
-                    <input type="submit" name="Button1" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Button1" class="btn btn-default" style="height:32px;width:85px;" />
-                    <div id="ValidationSummary1" class="style3" style="display:none;">
+        <div class="success-message" id="successMessage">
+            <strong>Success!</strong> Your enquiry has been submitted. We will contact you shortly.
+        </div>
+    </form>
 
-		</div>
-                </td>
-		<td>&nbsp;</td>
-	</tr>
-</table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Phone number validation - only digits
+            $('#txtContact').on('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
 
-         <span id="lblMsg"></span>
-    
-<script type="text/javascript">
-//<![CDATA[
-var Page_ValidationSummaries =  new Array(document.getElementById("ValidationSummary1"));
-var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator1"), document.getElementById("RequiredFieldValidator4"), document.getElementById("RequiredFieldValidator2"), document.getElementById("RegularExpressionValidator1"), document.getElementById("RequiredFieldValidator5"), document.getElementById("RequiredFieldValidator3"));
-//]]>
-</script>
+            // Real-time validation
+            $('#txtName, #txtContact, #txtEmail, #txtCompany, #txtMsg').on('blur', function() {
+                validateField($(this));
+            });
 
-<script type="text/javascript">
-//<![CDATA[
-var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
-RequiredFieldValidator1.controltovalidate = "txtName";
-RequiredFieldValidator1.errormessage = "Name Require";
-RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
-RequiredFieldValidator1.initialvalue = "";
-var RequiredFieldValidator4 = document.all ? document.all["RequiredFieldValidator4"] : document.getElementById("RequiredFieldValidator4");
-RequiredFieldValidator4.controltovalidate = "txtContact";
-RequiredFieldValidator4.errormessage = "Contact Number Required";
-RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
-RequiredFieldValidator4.initialvalue = "";
-var RequiredFieldValidator2 = document.all ? document.all["RequiredFieldValidator2"] : document.getElementById("RequiredFieldValidator2");
-RequiredFieldValidator2.controltovalidate = "txtEmail";
-RequiredFieldValidator2.errormessage = "E-mail Require";
-RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
-RequiredFieldValidator2.initialvalue = "";
-var RegularExpressionValidator1 = document.all ? document.all["RegularExpressionValidator1"] : document.getElementById("RegularExpressionValidator1");
-RegularExpressionValidator1.controltovalidate = "txtEmail";
-RegularExpressionValidator1.errormessage = "*";
-RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
-RegularExpressionValidator1.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-var RequiredFieldValidator5 = document.all ? document.all["RequiredFieldValidator5"] : document.getElementById("RequiredFieldValidator5");
-RequiredFieldValidator5.controltovalidate = "txtCompany";
-RequiredFieldValidator5.errormessage = "Company Require";
-RequiredFieldValidator5.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
-RequiredFieldValidator5.initialvalue = "";
-var RequiredFieldValidator3 = document.all ? document.all["RequiredFieldValidator3"] : document.getElementById("RequiredFieldValidator3");
-RequiredFieldValidator3.controltovalidate = "txtMsg";
-RequiredFieldValidator3.errormessage = "Description Require";
-RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
-RequiredFieldValidator3.initialvalue = "";
-var ValidationSummary1 = document.all ? document.all["ValidationSummary1"] : document.getElementById("ValidationSummary1");
-ValidationSummary1.showmessagebox = "True";
-ValidationSummary1.showsummary = "False";
-//]]>
-</script>
+            // Form submission
+            $('#enquiryForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate all fields
+                var isValid = true;
+                isValid = validateField($('#txtName')) && isValid;
+                isValid = validateField($('#txtContact')) && isValid;
+                isValid = validateField($('#txtEmail')) && isValid;
+                isValid = validateField($('#txtCompany')) && isValid;
+                isValid = validateField($('#txtMsg')) && isValid;
 
+                if (isValid) {
+                    submitEnquiry();
+                } else {
+                    // Scroll to first error
+                    $('.error-message.show:first').closest('.form-group')[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
 
-<script type="text/javascript">
-//<![CDATA[
+            function validateField($field) {
+                var fieldId = $field.attr('id');
+                var fieldValue = $field.val().trim();
+                var $error = $('#' + fieldId.replace('txt', '').replace('txt', '') + 'Error');
+                var isValid = true;
 
-var Page_ValidationActive = false;
-if (typeof(ValidatorOnLoad) == "function") {
-    ValidatorOnLoad();
-}
+                // Hide error initially
+                $error.removeClass('show');
+                $field.css('border-color', '#ccc');
 
-function ValidatorOnSubmit() {
-    if (Page_ValidationActive) {
-        return ValidatorCommonOnSubmit();
-    }
-    else {
-        return true;
-    }
-}
-        //]]>
-</script>
-</form>
+                // Check required fields
+                if ($field.attr('required')) {
+                    if (fieldValue === '') {
+                        showError($field, $error, 'This field is required');
+                        isValid = false;
+                        return false;
+                    }
+                }
+
+                // Specific validations
+                if (fieldId === 'txtContact') {
+                    if (fieldValue.length !== 10 || !/^[0-9]{10}$/.test(fieldValue)) {
+                        showError($field, $error, 'Please enter a valid 10-digit contact number');
+                        isValid = false;
+                    }
+                }
+
+                if (fieldId === 'txtEmail') {
+                    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(fieldValue)) {
+                        showError($field, $error, 'Please enter a valid email address');
+                        isValid = false;
+                    }
+                }
+
+                return isValid;
+            }
+
+            function showError($field, $error, message) {
+                $error.text(message).addClass('show');
+                $field.css('border-color', '#d9534f');
+            }
+
+            function submitEnquiry() {
+                // Get form data
+                var formData = {
+                    name: $('#txtName').val().trim(),
+                    contact: $('#txtContact').val().trim(),
+                    email: $('#txtEmail').val().trim(),
+                    company: $('#txtCompany').val().trim(),
+                    address: $('#txtAddress').val().trim(),
+                    message: $('#txtMsg').val().trim()
+                };
+
+                // Format message for WhatsApp
+                var whatsappMessage = "🔵 *New Enquiry - Laxmi Enterprises*\n\n";
+                whatsappMessage += "*Name:* " + formData.name + "\n";
+                whatsappMessage += "*Contact:* " + formData.contact + "\n";
+                whatsappMessage += "*Email:* " + formData.email + "\n";
+                whatsappMessage += "*Company:* " + formData.company + "\n";
+                if (formData.address) {
+                    whatsappMessage += "*Address:* " + formData.address + "\n";
+                }
+                whatsappMessage += "*Description:* " + formData.message + "\n\n";
+                whatsappMessage += "📍 *Laxmi Enterprises*\n";
+                whatsappMessage += "https://laxmienterprises24x7.com";
+
+                // Encode message for URL
+                var encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // WhatsApp number (India country code 91)
+                var whatsappNumber = "918655421233";
+                
+                // Create WhatsApp URL
+                var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodedMessage;
+
+                // Format email
+                var emailSubject = encodeURIComponent("New Enquiry from " + formData.name + " - Laxmi Enterprises");
+                var emailBody = encodeURIComponent(
+                    "New Enquiry Received\n\n" +
+                    "Name: " + formData.name + "\n" +
+                    "Contact: " + formData.contact + "\n" +
+                    "Email: " + formData.email + "\n" +
+                    "Company: " + formData.company + "\n" +
+                    (formData.address ? "Address: " + formData.address + "\n" : "") +
+                    "Description: " + formData.message
+                );
+                var emailUrl = "mailto:laxmienterprises96@gmail.com?subject=" + emailSubject + "&body=" + emailBody;
+
+                // Open WhatsApp in new tab
+                window.open(whatsappUrl, '_blank');
+
+                // Also try to open email (may be blocked by browser)
+                setTimeout(function() {
+                    window.location.href = emailUrl;
+                }, 500);
+
+                // Show success message
+                $('#successMessage').addClass('show');
+                $('#enquiryForm')[0].reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    $('#successMessage').removeClass('show');
+                }, 5000);
+
+                // Reset form styling
+                $('.form-control').css('border-color', '#ccc');
+                $('.error-message').removeClass('show');
+            }
+        });
+    </script>
 </body>
-
-
 </html>
